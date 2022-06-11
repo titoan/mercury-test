@@ -1,0 +1,21 @@
+img{
+    width: 100%;
+}
+
+.content-container{
+    padding-top:10% ;
+}
+
+.error{
+    border: 1px solid rgb(199, 25, 25);
+}
+
+.form .iti{
+    width: 100%;
+}
+
+.iti__flag {background-image: url("../img/flags.png");}
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  .iti__flag {background-image: url("../img/flags@2x.png");}
+}
