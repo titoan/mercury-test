@@ -83,23 +83,25 @@ function validPhone() {
   if (!phoneReg.test(phone.value) && phone.value.length > 0) {
     errPhone.innerText = errMsgs.phone;
     phone.classList.add('error');
-  }else if(phoneReg.test(phone.value) && phone.value.length > 0){
+  }else if(phoneReg.test(phone.value)){
     errPhone.innerText = ' ';
     phone.classList.remove('error')
   }
 
   let placeholder = phone.placeholder
   placeholder = placeholder.split(' ').join('');
-  let placeholderLen = placeholder.length
+  const placeholderLen = placeholder.length;
   
-  if(phone.value.length != placeholderLen && phone.value != ''){
-    errPhone.innerText = `Номер телефона должен состоять из ${placeholderLen} цифр`
-  }
+  if((phone.value.length != placeholderLen && phone.value != '') && phoneReg.test(phone.value)){
+    errPhone.innerText = `Номер телефона должен состоять из ${placeholderLen} цифр`;
+    phone.classList.add('error');
+  } 
+
 }
 
 function getCountryCode() {
   var input = document.querySelector("#phone");
-  let inputNum = intlTelInput(input, {
+  intlTelInput(input, {
     initialCountry: "auto",
     separateDialCode: true,   
     placeholderNumberType: "FIXED_LINE_OR_MOBILE",
